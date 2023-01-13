@@ -35,7 +35,8 @@ class cartController extends Controller
     public function show ()
     {
         $CartDish = Cart::content();
-        return view('FrontEnd.cart.show', compact('CartDish') );
+        $Coupon = Coupon::where('coupon_status',1)->get();
+        return view('FrontEnd.cart.show', compact('CartDish','Coupon') );
     }
     public function update(Request $request)
     {

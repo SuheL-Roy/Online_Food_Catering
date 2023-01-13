@@ -7,7 +7,6 @@
 @section('content')
 
 
-
 <!-- breadcrumb -->
 	<div class="container">
 		<ol class="breadcrumb w3l-crumbs">
@@ -42,6 +41,7 @@
 						<a href="{{ url('/') }}">
 							<h4>GET Upto<span><br>5% Offer</span></h4>
 							<h5>On Order Lunch Today</h5>
+							
 							<h6>Order Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
 						</a>
 					</div>

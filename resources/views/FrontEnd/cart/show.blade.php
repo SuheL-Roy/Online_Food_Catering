@@ -41,14 +41,17 @@
                                           {{-- Coupon Card --}}
 
 <div class="row">
-    <div class=" col-md-4 card text-white bg-danger mb-3" style="max-width: 18rem; margin:50px; margin-top:0px">
-  <div class="card-header">Use This Code For(100-1000)TK</div>
+@foreach ($Coupon as $coupon )
+<div class="col-md-4 card text-white bg-danger mb-3" style="max-width: 18rem; margin:30px; margin-top:0px">
+  <div class="card-header">Use This Code For(if you order more than {{$coupon->cart_min_value}}TK)</div>
   <div class="card-body">
-    <h1 class="card-title">c12335</h1>
-    <p class="card-text">You Can get 10% Off for this Coupon. So hurry up for order!!!</p>
+    <h1 class="card-title">{{$coupon->coupon_code}}</h1>
+    <p class="card-text">You Can get {{$coupon->coupon_value}}% Off for this Coupon. So hurry up for order!!!</p>
+    <p>Ends on : {{$coupon->expired_on}}</p>
   </div>
 </div>
-<div class="col-md-4  card text-white bg-info mb-3" style="max-width: 18rem; margin:50px; margin-top:0px">
+@endforeach
+{{-- <div class="col-md-4  card text-white bg-info mb-3" style="max-width: 18rem; margin:50px; margin-top:0px">
   <div class="card-header">Use This Code For(1000-2000)TK</div>
   <div class="card-body">
     <h1 class="card-title">a2345</h1>
@@ -61,7 +64,7 @@
     <h1 class="card-title">b12345</h1>
     <p class="card-text">You Can get 30% Off for this Coupon. So hurry up for order!!!</p>
   </div>
-</div>
+</div> --}}
 </div>
 
 
