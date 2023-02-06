@@ -12,7 +12,7 @@
                             <i class="fa fa-phone" aria-hidden="true"></i> Call us: 007-8000
                         </li>
 
-                        @if(Session::get('customer_id'))
+                        {{-- @if(Session::get('customer_id'))
                             <li class="head-dpdn">
                                 <a href="#" onclick="document.getElementById('customerLogout').submit();">
                                     <i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a>
@@ -44,7 +44,7 @@
                                     Register
                                 </a>
                             </li>
-                        @endif
+                        @endif --}}
 
                        {{-- <li class=" nav-item dropdown">
                             <a href="{{ route('profile')}}"> <i class="#" aria-hidden="true"></i> 🧑 Profile</a>
@@ -83,6 +83,40 @@
                         <li class="head-dpdn">
                             <a href="{{ route('help')}}"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
                         </li>
+                        
+                         @if(Session::get('customer_id'))
+                            <li class="head-dpdn">
+                                <a href="#" onclick="document.getElementById('customerLogout').submit();">
+                                    <i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a>
+                                <form action="{{ route('log_out') }}" id="customerLogout" method="POST">
+                                    @csrf
+                                </form>
+                            </li>
+                        @else
+                            <li class="head-dpdn">
+                                <a href="#signin-modal" data-toggle="modal">
+                                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                    Login
+                                </a>
+                            </li>
+                        @endif
+
+                        @if(Session::get('customer_id'))
+
+                            <li class="head-dpdn" title="View Profile">
+                                <a href="{{ route('profile')}}">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    {{ Session::get('customer_name') }}
+                                </a>
+                            </li>
+                        @else
+                            <li class="head-dpdn">
+                                <a href="#sigup-modal" data-toggle="modal">
+                                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                    Register
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <div class="clearfix"> </div>

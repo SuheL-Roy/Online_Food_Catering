@@ -27,6 +27,17 @@ class OrderController extends Controller
         return view('BackEnd.Order.manage', compact('orders'));
     }
 
+    public function PendingOrder(){
+        $orders = Order::where('order_status', '=', 'pending')
+            ->join('customers', 'orders.customer_id', '=', 'customers.customer_id')
+            ->join('payments', 'orders.order_id', '=', 'payments.order_id')
+            ->select('orders.*',  'customers.name','payments.payment_type','payments.payment_status')
+            ->latest()->get();
+       // $orders = Order::where('order_status', '=', 'pending')->with('customer')->latest()->get();
+
+        return view('BackEnd.Order.pending_order',compact('orders'));
+    }
+
     public function orderCancel()
     {
         $cancelOrder = Order::where('order_status','cancelled')->latest()->get();
@@ -82,6 +93,10 @@ class OrderController extends Controller
         $order = Order::with('customer')->find($order_id);
         $order->order_status = 'Delivered';
         $order->save();
+
+        $payment = payment::find($order_id);
+        $payment->payment_status = 'Success';
+        $payment->save();
 
 
         // dd($order);

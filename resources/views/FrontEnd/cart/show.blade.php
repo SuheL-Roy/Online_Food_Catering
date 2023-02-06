@@ -5,8 +5,15 @@
 @endsection
 
 @section('content')
+<div class="container">
+    <ol class="breadcrumb w3l-crumbs">
+        <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
+        <li class="active">About Us</li>
+    </ol>
+</div>
 
     <div class="products">
+        
         <div class="container">
 
             @if (Session::has('success'))

@@ -157,6 +157,7 @@ Route::prefix('order')->middleware([CheckAuthMiddleware::class])->group( functio
 
     /*============== Order start here ==========================================*/
     Route::get('/manage', 'OrderController@manageOrder')->name('show_order');
+    Route::get('/pending', 'OrderController@PendingOrder')->name('pending_order');
     Route::get('/cancel-order', 'OrderController@orderCancel')->name('cancelled_order');
     Route::get('/view/detail/{order_id}', 'OrderController@viewOrder')->name('view_order');
     Route::get('/view/invoice/{order_id}', 'OrderController@viewInvoice')->name('view_order_invoice');

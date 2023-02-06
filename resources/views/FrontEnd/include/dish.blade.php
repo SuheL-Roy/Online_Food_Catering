@@ -5,8 +5,17 @@
 
 @section('content')
 
+
     <!-- products -->
     <div class="products">
+        
+        <div class="container">
+            <ol class="breadcrumb w3l-crumbs">
+                <li><a href="{{ url('/') }}"><i class="fa fa-home"></i> Home</a></li>
+                <li class="active">About Us</li>
+            </ol>
+        </div>
+        
         <div class="container">
             <div class="col-md-9 product-w3ls-right">
                 {{-- For show flash message --}}
@@ -94,7 +103,7 @@
                                                     @csrf
                                                     <input type="hidden" name="dish_id" value="{{ $dish->dish_id }}">
                                                     <h4>Quantity</h4>
-                                                    <input type="number" min="1" name="qty" value="1">
+                                                    <input type="number" min="1" max="500" name="qty" value="1">
                                                     <button type="submit" class="w3ls-cart pw3ls-cart">
                                                         <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                                         Add to cart

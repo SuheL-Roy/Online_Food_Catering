@@ -29,15 +29,21 @@
 				</div>
 			</div>
 			<div class="offers-wthreerow2">
+
 				<div class="add-products-row">
+					@foreach ($coupon as $coups)
+						
+				
 					<div class="w3ls-add-grids">
 						<a href="{{ url('/') }}">
-							<h4>Get <span>10%<br>Cashback</span></h4>
+							<h4>Get <span>{{$coups->coupon_value}}%<br>Cashback</span></h4>
 							<h5>Special Offer Today Only</h5>
 							<h6>Order Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
 						</a>
 					</div>
-					<div class="w3ls-add-grids w3ls-add-grids-right">
+
+					@endforeach
+					{{-- <div class="w3ls-add-grids w3ls-add-grids-right">
 						<a href="{{ url('/') }}">
 							<h4>GET Upto<span><br>5% Offer</span></h4>
 							<h5>On Order Lunch Today</h5>
@@ -45,7 +51,7 @@
 							<h6>Order Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
 						</a>
 					</div>
-					<div class="clearfix"> </div>
+					<div class="clearfix"> </div> --}}
 				</div>
 			</div>
 		</div>

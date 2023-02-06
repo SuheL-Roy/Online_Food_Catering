@@ -48,10 +48,10 @@
                                                 Your Name
                                             </label>
                                             <input type="text" name="name" placeholder="Enter your name" class="form-control">
-                                            <label>
+                                            {{-- <label>
                                                 Your Amount
                                             </label>
-                                            <input type="text" name="grandTotal" placeholder="Enter your amount" class="form-control">
+                                            <input type="text" name="grandTotal" placeholder="Enter your amount" class="form-control"> --}}
 
                                             <label for="card-element">
                                                 Credit or debit card

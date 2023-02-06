@@ -10,6 +10,7 @@ use Mail;
 use Illuminate\Support\Facades\Session;
 use Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -57,22 +58,47 @@ class CustomerController extends Controller
     }
     public function check(Request $request)
     {
-        $customer = Customer::where('email', $request->email)->firstOrFail();
-        // return $customer;
+        
+    //     $customer = Customer::where('email', $request->email)->first();
+    //    // return $customer;
 
-        if (password_verify($request->password, $customer->password)) {
-            Session::put('customer_id', $customer->customer_id);
-            Session::put('customer_name', $customer->name);
+    //     if (password_verify($request->password, $customer->password)) {
+    //         Session::put('customer_id', $customer->customer_id);
+    //         Session::put('customer_name', $customer->name);
 
-            return back();
-        } elseif ($customer->email !== $request->email) {
+    //         return back();
+
+    //     } elseif ($customer->email !== $request->email) {
+
+    //         Session::flash('sms', 'Your email do not match our record');
+
+    //         return back();
+
+    //     } else {
+    //         Session::flash('sms', 'Your password is incorrect Please provide valid password!!!');
+    //         return back();
+    //     }
+         $customer = Customer::where('email','=', $request->email)->first();
+
+         if($customer){
+            if(Hash::check($request->password, $customer->password)){
+                Session::put('customer_id', $customer->customer_id);
+                Session::put('customer_name', $customer->name);
+
+                return back();
+            }else{
+                Session::flash('sms', 'Your password is incorrect Please provide valid password!!!');
+                return back();
+            }
+         }else{
             Session::flash('sms', 'Your email do not match our record');
-            return back();
-        } else {
-            Session::flash('sms', 'Your password is incorrect Please provide valid password!!!');
-            return back();
-        }
-       
+
+              return back();
+         }
+
+
+
+    
     }
 
     public function logout()

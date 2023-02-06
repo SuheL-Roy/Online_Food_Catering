@@ -57,12 +57,22 @@
         .StripeElement--webkit-autofill {
             background-color: #fefde5 !important;
         }
+        .alert {
+            font-size: 2.50rem;
+            text-align: center;
+        }
+        .breadcrumb li a{
+            color: green;
+        }
     </style>
 
 </head>
 <body>
 <!-- banner -->
-@include('FrontEnd.include.banner')
+{{-- @if (Request::is('/*')) --}}
+    @include('FrontEnd.include.banner')
+{{-- @endif --}}
+
 <!-- //banner -->
 
 {{-- @if (Session::has('sms'))

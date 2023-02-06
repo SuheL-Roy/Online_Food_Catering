@@ -80,6 +80,7 @@
 <script src="{{ asset('/BackEndSourceFile') }}/dist/js/adminlte.min.js"></script>
 <script src="{{ asset('/BackEndSourceFile') }}/plugins/datatables/jquery.dataTables.js"></script>
 <script src="{{ asset('/BackEndSourceFile') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     $(function () {

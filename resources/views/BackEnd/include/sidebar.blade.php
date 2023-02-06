@@ -152,6 +152,15 @@ $route = Route::current()->getName();
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('pending_order') }}" class="nav-link {{ ($route=='pending_order')?'active':'' }}">
+                                <i class="fa fa-plus-circle nav-icon"></i>
+                                <p>Pending Order</p>
+                            </a>
+                        </li>
+                    </ul>
+                    
                 </li>
                 {{-- ================ Order end here ==================================--}}
 

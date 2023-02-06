@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="products">
+        
         <div class="container">
             <div class="col-md-9 product-w3ls-right">
                 <div class="card">
