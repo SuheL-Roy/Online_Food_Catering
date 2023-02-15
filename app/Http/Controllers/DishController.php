@@ -17,7 +17,8 @@ class DishController extends Controller
 
     public function save_dish (Request $request)
     {
-            //dd($request->all());
+       
+           // dd($request->all());
 
         $imgName = $request->file('dish_image');
         $image = $imgName->getClientOriginalName();
@@ -27,9 +28,10 @@ class DishController extends Controller
 
 
         $request->validate([
-            //'dish_name ' => 'required',
+           // 'dish_name ' => 'required',
             'dish_detail' => 'required',
             //'dish_image' => 'required',
+            //'category_id' => 'required',
             'dish_status' => 'required',
             'full_price'=> 'required'
         ]);

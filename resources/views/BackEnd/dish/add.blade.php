@@ -40,12 +40,17 @@
                             </div>
                             <div class="form-group">
                                 <label>Category</label>
-                                <select name="category_id" class="form-control">
-                                    <option>----Select Category----</option>
-                                    @foreach($categories as $cate)
-                                        <option value="{{ $cate->category_id }}"> {{ $cate->category_name }}</option>
-                                    @endforeach
+                                <select name="category_id" class="form-control" id="validationCustom04" required>
+                                 {{-- <select class="form-select form-control" id="validationCustom04" required> --}}
+                                    <option selected disabled value="">----Select Category----</option>
+                                    
+                                    {{-- <option selected disabled >----Select Category----</option> --}}
+                                    @foreach($categories as $key => $cate)
+                                        <option  value="{{ $cate->category_id }}"> {{ $cate->category_name }}</option>
+                                    @endforeach 
+                                   
                                 </select>
+                            
                             </div>
                             <div class="form-group">
                                 <label >Details</label>
@@ -53,7 +58,7 @@
                             </div>
                             <div class="form-group">
                                 <label >Image</label>
-                                <input type="file" class="form-control" name="dish_image" accept="image/*">
+                                <input type="file" class="form-control" name="dish_image" accept="image/*" required="">
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
@@ -65,7 +70,7 @@
                             <div class="form-group">
                                 <label>Dish Price</label>
                                 <div class="radio">
-                                    <input type="text" class="form-control"  name="full_price" placeholder="Enter price" >
+                                    <input type="text" class="form-control"  name="full_price" placeholder="Enter price" required="">
                                 </div>
                             </div>
 
